@@ -38,14 +38,12 @@ export default class App extends React.Component {
                 theme="github"
                 name="editor"
                 editorProps={{$blockScrolling: true}}
-                width="100%"
-                height="100%"
               />
             </div>
           </div>
           <div className="bodyHeight mdl-cell mdl-cell--6-col noMar">
             <div className="halfHeight mdl-cell mdl-cell--12-col cardShadow">
-            
+
             </div>
             <div className="halfHeight mdl-cell mdl-cell--12-col cardShadow">
 

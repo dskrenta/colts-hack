@@ -19,8 +19,6 @@ export default class Code extends React.Component {
           theme="github"
           name="editor"
           editorProps={{$blockScrolling: true}}
-          width="100%"
-          height="100%"
         />
       </div>
     );
