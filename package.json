@@ -2,6 +2,8 @@
   "name": "colts-hack",
   "version": "0.0.0",
   "dependencies": {
+    "koa": "^2.2.0",
+    "nodemon": "^1.11.0",
     "prop-types": "^15.5.8",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
@@ -13,6 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "node server/index.js"
   }
 }
