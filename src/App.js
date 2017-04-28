@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
+import Header from './Header.js';
+import Code from './Code.js';
+import Graph from './Graph.js';
+import Logs from './Logs.js';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -10,7 +14,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Colts Hack</h1>
+        <Header />
+        <Code />
+        <Graph />
+        <Logs />
       </div>
     );
   }
