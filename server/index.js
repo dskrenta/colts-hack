@@ -1,13 +1,7 @@
 'use strict';
 const Koa = require('koa');
+const getMarketData = require('./get-data');
 const app = new Koa();
-
-// response
-/*
-app.use(ctx => {
-  ctx.body = 'Hello Koa';
-});
-*/
 
 app.use(ctx => {
   switch(ctx.request.url) {
