@@ -37,8 +37,7 @@ export default class Backtest {
 
   closeLong (bar) {
     this.orderBook.push({type: 'Close Long', marketData: bar, price: bar.open});
-    // console.log('LONG: ' + (bar.open - this.currentPosition.long.price) * this.currentPosition.long.shares);
-    this.trades.push((bar.open - this.currentPosition.long.price) * this.currentPosition.long.shares);
+    console.log('LONG: ' + (bar.open - this.currentPosition.long.price) * this.currentPosition.long.shares);
     this.totalPL += (bar.open - this.currentPosition.long.price) * this.currentPosition.long.shares;
     this.currentPosition.long = null;
   }
@@ -50,8 +49,7 @@ export default class Backtest {
 
   closeShort (bar) {
     this.orderBook.push({type: 'Close Short', marketData: bar, price: bar.open});
-    // console.log('SHORT: ' + (bar.open - this.currentPosition.short.price) * this.currentPosition.short.shares);
-    this.trades.push((bar.open - this.currentPosition.short.price) * this.currentPosition.short.shares);
+    console.log('SHORT: ' + (bar.open - this.currentPosition.short.price) * this.currentPosition.short.shares);
     this.totalPL += (bar.open - this.currentPosition.short.price) * this.currentPosition.short.shares;
     this.currentPosition.short = null;
   }
