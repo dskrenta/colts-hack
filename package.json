@@ -8,8 +8,8 @@
     "nodemon": "^1.11.0",
     "prop-types": "^15.5.8",
     "react": "^15.4.2",
+    "react-ace": "^4.2.1",
     "react-dom": "^15.4.2",
-    "talib": "^1.0.2",
     "yahoo-finance": "^0.2.16"
   },
   "devDependencies": {
