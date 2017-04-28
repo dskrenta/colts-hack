@@ -1,6 +1,7 @@
 'use strict';
+const fs = require('fs');
 
-const FILE = './data/spy-2000-2016.json';
+const FILE = `${__dirname}/data/spy-2000-2016.json`;
 
 const getMarketData = () => {
     return new Promise((resolve, reject) => {

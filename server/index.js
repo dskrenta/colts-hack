@@ -3,15 +3,14 @@ const Koa = require('koa');
 const getMarketData = require('./get-data');
 const app = new Koa();
 
-app.use(ctx => {
+app.use(async (ctx) => {
   switch(ctx.request.url) {
     case '/':
       ctx.type = 'text/html';
       ctx.body = 'base page'
     case '/api':
       ctx.type = 'application/json';
-      ctx.body = 'stuff';
-      // grab spy
+      ctx.body = await getMarketData();
       break;
     default:
       ctx.type = 'text/html';
