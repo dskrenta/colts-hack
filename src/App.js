@@ -57,7 +57,24 @@ export default class App extends React.Component {
       editorStyle: {
         width: '500px',
         height: '800px'
-      }
+      },
+      data: [
+        {
+          color: "blue",
+          points:
+            [
+              {x: 1, y: 2},
+              {x: 2, y: 5},
+              {x: 3, y: -3},
+              {x: 4, y:2},
+              {x: 5, y:2},
+              {x: 6, y:2},
+              {x: 7, y:4},
+              {x: 8, y:2},
+              {x: 9, y:4}
+            ]
+        }
+      ]
     };
     this.code = defaultAlgo;
     this.data = [
@@ -87,7 +104,17 @@ export default class App extends React.Component {
     const result = new Function(this.code).call(scope);
     this.setState({code: this.code});
     console.log(result);
-    this.setState({totalPL: result.totalPL, orderBook: result.orderBook});
+    const modData = result.trades.map((point, index) => {
+      return {x: index, y: point};
+    });
+    const newData = [
+      {
+        color: "blue",
+        points: modData
+      }
+    ];
+    console.log(newData);
+    this.setState({totalPL: result.totalPL, orderBook: result.orderBook, data: newData});
   }
 
   updateCode = (code) => {
@@ -147,10 +174,7 @@ export default class App extends React.Component {
           </div>
           <div className="bodyHeight mdl-cell mdl-cell--6-col noMar">
             <div className="halfHeight mdl-cell mdl-cell--12-col cardShadow">
-              <LineChart data={this.data} yLabel={"Value"} xLabel={"Time"} height="200px" width="400px" />
-            </div>
-            <div className="halfHeight mdl-cell mdl-cell--12-col cardShadow">
-
+              <LineChart data={this.state.data} yLabel={"Value"} xLabel={"Time"} height="200px" width="400px" />
             </div>
             <div className="halfHeight mdl-cell mdl-cell--12-col cardShadow scrollBox">
               <h3>Total P&L: {this.state.totalPL}</h3>
