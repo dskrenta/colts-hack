@@ -4,11 +4,15 @@
   "dependencies": {
     "chart.js": "^2.5.0",
     "koa": "^2.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "0.0.16",
     "nodemon": "^1.11.0",
     "prop-types": "^15.5.8",
     "react": "^15.4.2",
     "react-chartjs-2": "^2.0.5",
     "react-dom": "^15.4.2"
+    "react-ace": "^4.2.1",
+    "yahoo-finance": "^0.2.16"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
@@ -18,6 +22,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "serve": "node server/index.js"
+    "serve": "nodemon server/index.js"
   }
 }
