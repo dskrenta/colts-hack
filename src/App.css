@@ -1,0 +1,12 @@
+.bodyHeight
+{
+    height: calc(100vh - 100px);
+}
+.halfHeight
+{
+    height: calc(50% - 6px);
+}
+.noMar
+{
+    margin: 0 !important;
+}
