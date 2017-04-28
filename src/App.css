@@ -10,3 +10,6 @@
 {
     margin: 0 !important;
 }
+.scrollBox {
+  overflow: scroll;
+}

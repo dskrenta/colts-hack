@@ -8,6 +8,7 @@ export default class Backtest {
     this.shares = avgDelta * 100 * numContracts;
     this.orderBook = [];
     this.currentPosition = {};
+    this.trades = [];
     this.totalPL = 0;
   }
 
@@ -37,6 +38,7 @@ export default class Backtest {
   closeLong (bar) {
     this.orderBook.push({type: 'Close Long', marketData: bar, price: bar.open});
     // console.log('LONG: ' + (bar.open - this.currentPosition.long.price) * this.currentPosition.long.shares);
+    this.trades.push((bar.open - this.currentPosition.long.price) * this.currentPosition.long.shares);
     this.totalPL += (bar.open - this.currentPosition.long.price) * this.currentPosition.long.shares;
     this.currentPosition.long = null;
   }
@@ -49,6 +51,7 @@ export default class Backtest {
   closeShort (bar) {
     this.orderBook.push({type: 'Close Short', marketData: bar, price: bar.open});
     // console.log('SHORT: ' + (bar.open - this.currentPosition.short.price) * this.currentPosition.short.shares);
+    this.trades.push((bar.open - this.currentPosition.short.price) * this.currentPosition.short.shares);
     this.totalPL += (bar.open - this.currentPosition.short.price) * this.currentPosition.short.shares;
     this.currentPosition.short = null;
   }
@@ -90,12 +93,19 @@ export default class Backtest {
     }
   }
 
+  getFinalData() {
+    return {
+      orderBook: this.orderBook,
+      totalPL: this.totalPL.toFixed(2),
+      trades: this.trades
+    };
+  }
+
   async main () {
     try {
       this.finalMarketData = this.marketData;
       this.backtestLoop();
-
-      // console.log(`P/L: ${this.totalPL.toFixed(2)}`);
+      console.log(`P/L: ${this.totalPL.toFixed(2)}`);
     } catch (err) {
       console.log(err);
     }
