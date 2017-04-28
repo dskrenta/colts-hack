@@ -4,7 +4,7 @@
 }
 .halfHeight
 {
-    height: calc(50% - 6px);
+    height: calc(50% - 4.5px);
 }
 .noMar
 {

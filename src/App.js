@@ -6,6 +6,8 @@ import AceEditor from 'react-ace';
 import 'brace/mode/javascript';
 import 'brace/theme/github';
 import Backtest from './Backtest';
+import LineChart from 'react-linechart';
+import '../node_modules/react-linechart/dist/styles.css';
 
 const defaultAlgo = `let prevSarHigher = false;
 this.bt.setTradingLogic(bar => {
@@ -58,6 +60,23 @@ export default class App extends React.Component {
       }
     };
     this.code = defaultAlgo;
+    this.data = [
+      {
+        color: "blue",
+        points:
+          [
+            {x: 1, y: 2},
+            {x: 2, y: 5},
+            {x: 3, y: -3},
+            {x: 4, y:2},
+            {x: 5, y:2},
+            {x: 6, y:2},
+            {x: 7, y:4},
+            {x: 8, y:2},
+            {x: 9, y:4}
+          ]
+      }
+    ];
     this.marketData = JSON.parse(marketData);
 
     let prevSarHigher = false;
@@ -127,6 +146,9 @@ export default class App extends React.Component {
             </div>
           </div>
           <div className="bodyHeight mdl-cell mdl-cell--6-col noMar">
+            <div className="halfHeight mdl-cell mdl-cell--12-col cardShadow">
+              <LineChart data={this.data} yLabel={"Value"} xLabel={"Time"} height="200px" width="400px" />
+            </div>
             <div className="halfHeight mdl-cell mdl-cell--12-col cardShadow">
 
             </div>
