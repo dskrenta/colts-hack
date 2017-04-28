@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
-import Header from './Header.js';
-import Code from './Code.js';
-import Graph from './Graph.js';
-import Logs from './Logs.js';
+import brace from 'brace';
+import AceEditor from 'react-ace';
+
+import 'brace/mode/javascript';
+import 'brace/theme/github';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,17 +15,40 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <header className="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+          <div className="mdl-layout__header-row">
+            <span className="mdl-layout-title logo">Trading<span>Rhino</span></span>
+            <div className="mdl-layout-spacer"></div>
+            <div className="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+              <label className="mdl-button mdl-js-button mdl-button--icon" for="search">
+                <i className="material-icons">play_circle_filled</i>
+              </label>
+              <div className="mdl-textfield__expandable-holder">
+                <input className="mdl-textfield__input" type="text" id="search"/>
+                <label className="mdl-textfield__label" for="search">Enter your query...</label>
+              </div>
+            </div>
+          </div>
+        </header>
         <div className="mdl-grid">
           <div className="bodyHeight mdl-cell mdl-cell--6-col mdl-grid cardShadow">
-            <Code />
+            <div className="editorCont">
+              <AceEditor
+                mode="javascript"
+                theme="github"
+                name="editor"
+                editorProps={{$blockScrolling: true}}
+                width="100%"
+                height="100%"
+              />
+            </div>
           </div>
           <div className="bodyHeight mdl-cell mdl-cell--6-col noMar">
             <div className="halfHeight mdl-cell mdl-cell--12-col cardShadow">
-              <Graph />
+            
             </div>
             <div className="halfHeight mdl-cell mdl-cell--12-col cardShadow">
-              <Logs />
+
             </div>
           </div>
         </div>
