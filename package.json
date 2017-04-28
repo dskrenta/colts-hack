@@ -2,15 +2,15 @@
   "name": "colts-hack",
   "version": "0.0.0",
   "dependencies": {
+    "chart.js": "^2.5.0",
     "koa": "^2.2.0",
     "koa-convert": "^1.2.0",
     "koa-cors": "0.0.16",
     "nodemon": "^1.11.0",
     "prop-types": "^15.5.8",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "talib": "^1.0.2",
-    "yahoo-finance": "^0.2.16"
+    "react-chartjs-2": "^2.0.5",
+    "react-dom": "^15.4.2"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
