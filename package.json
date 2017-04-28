@@ -10,7 +10,7 @@
     "prop-types": "^15.5.8",
     "react": "^15.4.2",
     "react-chartjs-2": "^2.0.5",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
     "react-ace": "^4.2.1",
     "yahoo-finance": "^0.2.16"
   },
